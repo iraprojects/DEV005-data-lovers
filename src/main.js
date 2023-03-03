@@ -14,6 +14,8 @@ characters.forEach((element, i) => {
                 Name: ${element.name}
                 Birth: ${element.birth}
                 House: ${element.house}
+                Species: ${element.species}
+                Gender: ${element.gender}
             </li>`;
 
     }
