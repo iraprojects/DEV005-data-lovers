@@ -8,6 +8,7 @@ const charactersName = document.querySelector("#p-characters");
 const characters = data.characters;
 
 characters.forEach((element, i) => {
+<<<<<<< HEAD
     if (listCH.charactersList.includes(element.name)) {
     /* charactersName.innerHTML += 
         `<li id='ch${i}'>
@@ -25,6 +26,18 @@ characters.forEach((element, i) => {
                 <li>Gender: ${element.gender}</li>
             </ul>`
         );
+=======
+    if(listCH.charactersList.includes(element.name)){
+        charactersName.innerHTML += 
+            `<li id='ch${i}'>
+                Name: ${element.name}
+                Birth: ${element.birth}
+                House: ${element.house}
+                Species: ${element.species}
+                Gender: ${element.gender}
+            </li>`;
+
+>>>>>>> 643e5ddd4b1fd413be06a88724962cdf0d07f000
     }
 
 });
