@@ -9345,7 +9345,7 @@ export default {
     },
     {
       "id": 596,
-      "name": "Hedwig",
+      "name": "Hedwig2",
       "birth": "Middle Ages",
       "death": "Middle Ages",
       "species": "Human",
