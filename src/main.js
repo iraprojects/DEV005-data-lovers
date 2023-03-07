@@ -8,19 +8,16 @@ const charactersName = document.querySelector("#p-characters");
 const characters = data.characters;
 
 characters.forEach((element, i) => {
-    if (listCH.charactersList.includes(element.name)) {
-        charactersName.insertAdjacentHTML (
-            "afterend",
-            `<ul class='ul-ch' id='ch${i}'>
-                <li>Name: ${element.name}</li>
-                <li>Birth: ${element.birth}</li>
-                <li>House: ${element.house}</li>
-                <li>Species: ${element.species}</li>
-                <li>Gender: ${element.gender}</li>
-            </ul>`
-        );
-    }
-
+  if (listCH.charactersList.includes(element.name)) {
+    charactersName.insertAdjacentHTML (
+      "afterend",
+      `<ul class='ul-ch' id='ch${i}'>
+          <li>Name: ${element.name}</li>
+          <li>Birth: ${element.birth}</li>
+          <li>House: ${element.house}</li>
+          <li>Species: ${element.species}</li>
+          <li>Gender: ${element.gender}</li>
+      </ul>`
+    );
+  }
 });
-/* 
-+ ' ' + element.birth*/
