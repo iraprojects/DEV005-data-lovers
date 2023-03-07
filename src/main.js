@@ -6,17 +6,17 @@ listElement.style.display = "none";
 const loadingDiv = document.getElementById("loading")
 
 const charactersName = document.querySelector("#p-characters");
+var data;
 apiHarry().then((listHarry) => {
   loadingDiv.style.display = "none";
   listElement.style.display = "block";
   /* let data = listHarry */
 
-  listHarry.characters.map((item, i) => {
+  listHarry.characters.map((item, index) => {
     const valitate = listCH.charactersList.find((itemCH) => itemCH.name === item.name)
     if (valitate) {
-      charactersName.insertAdjacentHTML(
-        "afterend",
-        `<ul class='ul-ch' id='ch${i}'>
+      charactersName.innerHTML +=
+        `<ul class='ul-ch' id='ch${index}'>
                     <li>Name: ${item.name}</li>
                     <li>Birth: ${item.birth}</li>
                     <li>House: ${item.house}</li>
@@ -24,12 +24,12 @@ apiHarry().then((listHarry) => {
                     <li>Gender: ${item.gender}</li>
                     <li> <img src="${valitate.link}">: </li>
                 </ul>`
-      )
+      
     }
   })
   /* 
   + ' ' + element.birth*/
-  
+  data = listHarry
 })
 /* 
 characters.forEach((element, i) => {
