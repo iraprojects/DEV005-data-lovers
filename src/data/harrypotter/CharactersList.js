@@ -194,10 +194,11 @@ export default {
         },
         {
             name: "Aberforth Dumbledore",
+            link: "https://pm1.narvii.com/6224/c5b3303d6db95373b9194abfa654b21f8d1a7293_hq.jpg"
         },
         {
             name: "Hedwig",
-            LINK: "https://vignette.wikia.nocookie.net/harrypotter/images/1/1e/Hedwig_Snowy_Owl_PM.png/revision/latest?cb=20161123234010"
+            link: "https://vignette.wikia.nocookie.net/harrypotter/images/1/1e/Hedwig_Snowy_Owl_PM.png"
         }
     ]
 }
