@@ -2,9 +2,7 @@
     --bg-color: #3f3f3f43;
     --box-color: #3f3f3f;
     --text-color: white;
-}
-
-body {
+}body {
     margin: 0%;
     background-image:url('./img/img-b.jpg');
     background-repeat:no-repeat;
@@ -14,7 +12,6 @@ body {
     align-items: center;
     min-height: fit-content;
 }
-
 h1 {
     color: var(--text-color);
     text-align: center;
@@ -23,8 +20,8 @@ h1 {
     padding: 2%;
     background-color: var(--bg-color);
 }
-
-.ContainerCH {
+l, #characters-names {
+    color: var(--text-color);
     width: 100%;
     height: fit-content;
     display: flex;
@@ -52,7 +49,6 @@ li {
     font-size: 14px;
     padding: 2px;
 }
-
 p {
     font-size: large;
     font-weight: bold;
@@ -62,15 +58,7 @@ p {
     text-align: center;
     background-color: var(--box-color);
 }
-
-/* #ch0 {
-    background-image: url('./img/gryffondor.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+img{
+    width: 150px;
+    height: 250px;
 }
-
-#ch1 {
-    background-image: url('./img/Ravenclaw.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-} */
