@@ -5,7 +5,7 @@ const listElement = document.getElementById("list");
 listElement.style.display = "none";
 const loadingDiv = document.getElementById("loading")
 
-const charactersName = document.querySelector("#p-characters");
+const charactersName = document.getElementById("characters-names");
 var data;
 apiHarry().then((listHarry) => {
   loadingDiv.style.display = "none";
@@ -22,7 +22,7 @@ apiHarry().then((listHarry) => {
                     <li>House: ${item.house}</li>
                     <li>Species: ${item.species}</li>
                     <li>Gender: ${item.gender}</li>
-                    <li> <img src="${valitate.link}">: </li>
+                    <li> <img src="${valitate.link}"> </li>
                 </ul>`
       
     }
