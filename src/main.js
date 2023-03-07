@@ -1,12 +1,37 @@
-//import { example } from './data.js';
-//import data from './data/harrypotter/harry.json' assert {type: 'json'};
-//console.log(example, data['characters']);
-import data from "./data/harrypotter/harry.js";
-import listCH from "./data/harrypotter/CharactersList.js";
+import { apiHarry } from './api/apiHarry.js';
+import listCH from './data/harrypotter/CharactersList.js';
+
+const listElement = document.getElementById("list");
+listElement.style.display = "none";
+const loadingDiv = document.getElementById("loading")
 
 const charactersName = document.querySelector("#p-characters");
-const characters = data.characters;
+apiHarry().then((listHarry) => {
+  loadingDiv.style.display = "none";
+  listElement.style.display = "block";
+  /* let data = listHarry */
 
+  listHarry.characters.map((item, i) => {
+    const valitate = listCH.charactersList.find((itemCH) => itemCH.name === item.name)
+    if (valitate) {
+      charactersName.insertAdjacentHTML(
+        "afterend",
+        `<ul class='ul-ch' id='ch${i}'>
+                    <li>Name: ${item.name}</li>
+                    <li>Birth: ${item.birth}</li>
+                    <li>House: ${item.house}</li>
+                    <li>Species: ${item.species}</li>
+                    <li>Gender: ${item.gender}</li>
+                    <li> <img src="${valitate.link}">: </li>
+                </ul>`
+      )
+    }
+  })
+  /* 
+  + ' ' + element.birth*/
+  
+})
+/* 
 characters.forEach((element, i) => {
   if (listCH.charactersList.includes(element.name)) {
     charactersName.insertAdjacentHTML (
@@ -20,4 +45,4 @@ characters.forEach((element, i) => {
       </ul>`
     );
   }
-});
+}); */
