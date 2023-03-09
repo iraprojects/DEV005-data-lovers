@@ -49,6 +49,7 @@ export default {
         'Garrick Ollivander',
         'Pomona Sprout',
         'Aberforth Dumbledore',
-        'Hedwig'
+        'Hedwig',
+        'Dobby'
     ]
 }
