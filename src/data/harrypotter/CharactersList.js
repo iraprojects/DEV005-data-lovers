@@ -199,6 +199,10 @@ export default {
         {
             name: "Hedwig",
             link: "https://vignette.wikia.nocookie.net/harrypotter/images/1/1e/Hedwig_Snowy_Owl_PM.png"
+        },
+        {
+            name: "Dobby",
+            link: "https://www.elist10.com/wp-content/uploads/2014/01/Dobby-Harry-Potter.jpg"
         }
     ]
 }
