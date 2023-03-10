@@ -7,3 +7,8 @@ export const example = () => {
 export const anotherExample = () => {
   return 'OMG';
 };
+
+export const filterData = (dataList, condition) => {
+  const dataFilter = dataList.filter((item) => item.house === condition)
+  return dataFilter;
+}; 

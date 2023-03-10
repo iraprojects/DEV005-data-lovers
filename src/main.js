@@ -1,4 +1,5 @@
 import { apiHarry } from './api/apiHarry.js';
+import { filterData } from './data.js';
 import listCH from './data/harrypotter/CharactersList.js';
 
 const listElement = document.getElementById("list");
@@ -7,14 +8,15 @@ const loadingDiv = document.getElementById("loading")
 let dataList;
 const charactersName = document.getElementById("characters-names");
 const navMenu = document.querySelector('.Menu');
-const navToogle = document.querySelector('.toggle')
+const navToogle = document.querySelector('.toggle');
+
 apiHarry().then((listHarry) => {
   loadingDiv.style.display = 'none';
   listElement.style.display = 'block';
   dataList = listHarry 
   renderList(listHarry.characters)
-  
-})
+});
+
 function renderList(listHarry) {
   let listInsert = "";
   listHarry.map((item, index) => {
@@ -25,7 +27,7 @@ function renderList(listHarry) {
           <li> <img src="${valitate.link}" alt="Picture of ${item.name}"> </li>
           <li>Name: ${item.name}</li>
           <li>Birth: ${item.birth}</li>
-          <li>House: ${item.house ? item.house : "No aplica"}</li>
+          <li>House: ${item.house ? item.house : "Not apply"}</li>
           <li>Species: ${item.species}</li>
           <li>Gender: ${item.gender}</li>
         </ul>`
@@ -33,6 +35,7 @@ function renderList(listHarry) {
   })
   charactersName.innerHTML = listInsert
 }
+
 navToogle.addEventListener('click', () => {
   navMenu.classList.toggle('Menu_visible');
   if (navMenu.classList.contains('Menu_visible')) {
@@ -40,13 +43,45 @@ navToogle.addEventListener('click', () => {
   }else {
     navToogle.setAttribute('aria-label', 'Open menu');
   }
-})
+});
 
 const selectHouse = document.getElementById("sl-house");
+let dataFilter;
+selectHouse.addEventListener('change', () => {
+  if(selectHouse.value !== "All Characters")  dataFilter = filterData(dataList.characters, selectHouse.value);
+  else dataFilter = dataList.characters;
+  renderList(dataFilter);
+  title.style.display='none';
+  subtitle.style.display = 'block';
+  subtitle.textContent = `${selectHouse.value}`;
+});
+
+const btnHome = document.querySelector('#btn-home');
+const title = document.querySelector('h1');
+const subtitle = document.querySelector('#subtitle');
+const protagonists = [
+  'Harry Potter', 
+  'Ronald Weasley', 
+  'Hermione Granger', 
+  'Albus Dumbledore', 
+  'Severus Snape', 
+  'Tom Riddle (Voldemort)'
+];
+btnHome.addEventListener('click', () => {
+  dataFilter = listCH.charactersList.filter((item) => protagonists.includes(item.name));
+  renderList(dataFilter);
+  title.style.display='block';
+  selectHouse.value='Filter by';
+  subtitle.style.display='none';
+});
+
+
+
+/* const selectHouse = document.getElementById("sl-house");
 selectHouse.addEventListener('change', () => {
   let dataFilter;
-  if(selectHouse.value != "")  dataFilter = dataList.characters.filter((item) => item.house === selectHouse.value)
+  if(selectHouse.value !== "")  dataFilter = dataList.characters.filter((item) => item.house === selectHouse.value)
   else dataFilter = dataList.characters
   
   renderList(dataFilter)
-})
+}) */
