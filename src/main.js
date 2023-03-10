@@ -1,18 +1,18 @@
 import { apiHarry } from './api/apiHarry.js';
 import listCH from './data/harrypotter/CharactersList.js';
+//import { filterData } from './data.js'
 
 const listElement = document.getElementById("list");
 listElement.style.display = 'none';
-const loadingDiv = document.getElementById("loading")
-
+const loadingDiv = document.getElementById("loading");
 const charactersName = document.getElementById("characters-names");
 const navMenu = document.querySelector('.Menu');
-const navToogle = document.querySelector('.toggle')
+const navToogle = document.querySelector('.toggle');
+
 apiHarry().then((listHarry) => {
   loadingDiv.style.display = 'none';
   listElement.style.display = 'block';
   /* let data = listHarry */
-
   listHarry.characters.map((item, index) => {
     const valitate = listCH.charactersList.find((itemCH) => itemCH.name === item.name);
     if (valitate) {
@@ -27,7 +27,7 @@ apiHarry().then((listHarry) => {
         </ul>`
     }
   })
-})
+});
 
 navToogle.addEventListener('click', () => {
   navMenu.classList.toggle('Menu_visible');
@@ -36,9 +36,10 @@ navToogle.addEventListener('click', () => {
   }else {
     navToogle.setAttribute('aria-label', 'Open menu');
   }
-})
-/* 
-characters.forEach((element, i) => {
+});
+
+
+/* characters.forEach((element, i) => {
   if (listCH.charactersList.includes(element.name)) {
     charactersName.insertAdjacentHTML (
       "afterend",
