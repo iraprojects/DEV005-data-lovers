@@ -8,6 +8,7 @@
     --shadow-color: #00000080;
     --border-color: #b1b1b178;
 }
+
 body {
     margin: 0%;
     background: linear-gradient(var(--gradient),var(--gradient)), url('./img/img-b.jpg');
@@ -18,12 +19,14 @@ body {
     align-items: center;
     min-height: fit-content;    
 }
+
 h1 {
     color: var(--text-color);
     text-align: center;
     text-transform:uppercase;
-    margin-top: 0%;
-    padding: 2%;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    display: none;
 }
 
 header {
@@ -115,6 +118,7 @@ button {
     background-color: var(--select-color);
     border-style: none;
 }
+
 p {
     font-size: large;
     font-weight: bold;
@@ -123,6 +127,8 @@ p {
     margin: 0% 40% 1% 40%;
     text-align: center;
     background-color: var(--box-color);
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 img{
@@ -142,6 +148,11 @@ img{
     font-size: 20px;
     display: none;
 }
+
+#opt-filter-by {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .logo {
         width: 50px;

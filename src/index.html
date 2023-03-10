@@ -13,7 +13,7 @@
         <img src="./img/logo.png" class="logo" alt="logo harry potter">
         <button class="toggle" aria-label="open menu"><i class="fa-solid fa-bars"></i></button>
         <ul class="Menu Menu_visible">
-          <li class="Nav-menu-item"><button class="Nav-menu-link .Nav-menu-link_active">Home</button></li>
+          <li class="Nav-menu-item"><button id="btn-home" class="Nav-menu-link .Nav-menu-link_active">Home</button></li>
           <li class="Nav-menu-item">
             <select class="Nav-menu-link .Nav-menu-link_active" name="sl-characters" id="sl-characters">
               <option value="" selected>Sort by</option>
@@ -22,7 +22,8 @@
           </li>
           <li class="Nav-menu-item"> 
             <select class="Nav-menu-link .Nav-menu-link_active" name="sl-house" id="sl-house">
-              <option value="" selected>All Characters</option>
+              <option id="opt-filter-by" value="Filter by" disabled selected>Filter By</option>
+              <option value="All Characters">All Characters</option>
               <option value="Gryffindor">Gryffindor</option>
               <option value="Slytherin">Slytherin</option>
               <option value="Hufflepuff">Hufflepuff</option>
@@ -36,10 +37,10 @@
       </nav>
     </header> 
     <main>
-      <h1>Harry Potter Data</h1>
+      <h1>Harry Potter Wiki</h1>
     </main>
     <section id="list">
-      <p>Characters Names</p>
+      <p id="subtitle">All Characters</p>
       <ul id="characters-names">
       </ul>
     </section>
