@@ -1,6 +1,6 @@
 import { apiHarry } from './api/apiHarry.js';
+import { filterData } from './data.js';
 import listCH from './data/harrypotter/CharactersList.js';
-//import { filterData } from './data.js'
 
 const listElement = document.getElementById("list");
 listElement.style.display = 'none';
@@ -15,8 +15,8 @@ apiHarry().then((listHarry) => {
   listElement.style.display = 'block';
   dataList = listHarry 
   renderList(listHarry.characters)
-  
 })
+
 function renderList(listHarry) {
   let listInsert = "";
   listHarry.map((item, index) => {
@@ -27,7 +27,7 @@ function renderList(listHarry) {
           <li> <img src="${valitate.link}" alt="Picture of ${item.name}"> </li>
           <li>Name: ${item.name}</li>
           <li>Birth: ${item.birth}</li>
-          <li>House: ${item.house ? item.house : "No aplica"}</li>
+          <li>House: ${item.house ? item.house : "Not apply"}</li>
           <li>Species: ${item.species}</li>
           <li>Gender: ${item.gender}</li>
         </ul>`
@@ -35,6 +35,7 @@ function renderList(listHarry) {
   })
   charactersName.innerHTML = listInsert
 }
+
 navToogle.addEventListener('click', () => {
   navMenu.classList.toggle('Menu_visible');
   if (navMenu.classList.contains('Menu_visible')) {
@@ -45,10 +46,18 @@ navToogle.addEventListener('click', () => {
 })
 
 const selectHouse = document.getElementById("sl-house");
+let dataFilter;
+selectHouse.addEventListener('change', () => {
+  if(selectHouse.value !== "")  dataFilter = filterData(dataList.characters, selectHouse.value);
+  else dataFilter = dataList.characters;
+  renderList(dataFilter);
+})
+
+/* const selectHouse = document.getElementById("sl-house");
 selectHouse.addEventListener('change', () => {
   let dataFilter;
   if(selectHouse.value !== "")  dataFilter = dataList.characters.filter((item) => item.house === selectHouse.value)
   else dataFilter = dataList.characters
   
   renderList(dataFilter)
-})
+}) */
