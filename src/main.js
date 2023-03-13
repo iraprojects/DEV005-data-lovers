@@ -1,5 +1,5 @@
 import { apiHarry } from './api/apiHarry.js';
-import { filterData } from './data.js';
+import { filterData, filterProtagonists } from './data.js';
 import listCH from './data/harrypotter/CharactersList.js';
 
 const listElement = document.getElementById("list");
@@ -13,8 +13,9 @@ const navToogle = document.querySelector('.toggle');
 apiHarry().then((listHarry) => {
   loadingDiv.style.display = 'none';
   listElement.style.display = 'block';
-  dataList = listHarry 
-  renderList(listHarry.characters)
+  dataList = listHarry;
+  renderProtagonists();
+  //renderList(listHarry.characters)
 });
 
 function renderList(listHarry) {
@@ -67,14 +68,34 @@ const protagonists = [
   'Severus Snape', 
   'Tom Riddle (Voldemort)'
 ];
-btnHome.addEventListener('click', () => {
-  dataFilter = listCH.charactersList.filter((item) => protagonists.includes(item.name));
-  renderList(dataFilter);
+
+const renderProtagonists = () => {
+  dataFilter = filterProtagonists(dataList.characters, protagonists);
   title.style.display='block';
   selectHouse.value='Filter by';
   subtitle.style.display='none';
+  renderList(dataFilter);
+};
+
+btnHome.addEventListener('click', () => {
+  renderProtagonists();
 });
 
+//limpiar evento y agregar funciones
+const slSort = document.querySelector('#sl-sort');
+slSort.addEventListener('change', () => {
+  let dataSort;
+  if(slSort.value !== "sort-by") {
+    dataSort = dataList.characters.concat().sort((a, b) => {
+      const nameA = a.name.toUpperCase();
+      const nameB = b.name.toUpperCase();
+      if (nameA < nameB) return -1;
+      if (nameA > nameB) return 1;
+      return 0;
+    });
+    renderList(dataSort);
+  } else renderList(dataList.characters);
+});
 
 
 /* const selectHouse = document.getElementById("sl-house");
