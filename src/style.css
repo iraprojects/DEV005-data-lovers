@@ -4,6 +4,7 @@
     --text-color: #ffffff;
     --hover-color: #a9a9a9;
     --select-color: #696969;
+    --search-color: #e7e7e7;
     --gradient: rgba(0, 0, 0, 0.7);
     --shadow-color: #00000080;
     --border-color: #b1b1b178;
@@ -129,6 +130,11 @@ p {
     background-color: var(--box-color);
     margin-top: 2%;
     margin-bottom: 2%;
+}
+
+#search {
+    background-color: var(--search-color);
+    color: var(--box-color);
 }
 
 img{
