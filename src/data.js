@@ -10,6 +10,7 @@ export const anotherExample = () => {
 
 export const filterData = (dataList, condition) => {
   const dataFilter = dataList.filter((item) => item.house === condition)
+  console.log(dataFilter)
   return dataFilter;
 };
 

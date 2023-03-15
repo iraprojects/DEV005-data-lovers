@@ -12,7 +12,7 @@
 
 body {
     margin: 0%;
-    background: linear-gradient(var(--gradient),var(--gradient)), url('./img/img-b.jpg');
+    background: linear-gradient(var(--gradient),var(--gradient)), url('https://sm.ign.com/t/ign_fr/news/h/harry-pott/harry-potter-hogwarts-mystery-is-confusing-players-about-est_19a6.2560.jpg');
     background-repeat:no-repeat;
     background-attachment: fixed;
     background-size: cover;
