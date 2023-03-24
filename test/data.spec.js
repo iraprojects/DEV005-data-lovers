@@ -1,4 +1,4 @@
-import { filterData, filterProtagonists, sortList, searchFilter } from '../src/data.js';
+import { filterData, filterProtagonists, sortList, searchFilter } from '/src/data.js';
 const data = [
   {
     name: "Harry Potter",
