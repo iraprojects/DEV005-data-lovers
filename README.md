@@ -46,6 +46,7 @@ Diseño final:
 
 Se agregaron tests a las funciones del archivo data.js las cuales fueron:
   * Filtrar por casas y protagonistas.
-  * Ordenar por orden ascendente
+  * Ordenar por orden ascendente.
   * Filtrar por busqueda.
-  * Calu
+  * Calcular porcentaje total de personajes por cada casa.
+![tests-corriendo](./readme_img/runTestspng.png)
