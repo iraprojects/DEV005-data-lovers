@@ -1,6 +1,6 @@
-import { apiHarry } from '../../api/apiHarry.js';
-import { filterData, filterProtagonists, searchFilter, sortList } from '/data.js';
-import listCH from '../../data/harrypotter/CharactersList.js';
+import { apiHarry } from '../api/apiHarry.js';
+import { filterData, filterProtagonists, searchFilter, sortList, calculate } from './data.js';
+import listCH from '../data/harrypotter/CharactersList.js';
 
 const slSort = document.querySelector('#sl-sort');
 const listElement = document.getElementById("list");
@@ -17,7 +17,6 @@ apiHarry().then((listHarry) => {
   listElement.style.display = 'block';
   dataList = listHarry;
   dataFilter = listHarry.characters;
-  //listCharacters(dataFilter)
   renderProtagonists();
 });
 
@@ -28,10 +27,6 @@ function listCharacters(listHarry) {
     if (validate) newList.push(listHarry[index])
   });
   return newList;
-}
-
-function porcent(number) {
-  return (number/50) * 100;
 }
 
 function renderList(listHarry) {
@@ -70,7 +65,7 @@ selectHouse.addEventListener('change', () => {
   if(selectHouse.value !== "All Characters") {
     dataFilter = filterData(dataFilter, selectHouse.value);
     const count = listCharacters(dataFilter).length-1
-    pCalc.innerHTML = `Total de personajes: ${count}, Porcentaje: ${porcent(count)}%`
+    pCalc.innerHTML = `Total characters: ${count+1}, Percentage: ${calculate(count+1)}%`
     pCalc.style.display = 'block'; 
   }
   else {
@@ -130,9 +125,3 @@ searchBar.addEventListener('keyup', () => {
   renderList(searchFilter(dataList.characters, searchBar.value.toLowerCase()));
   if (searchBar.value === '') renderProtagonists();
 });
-
-/* if (selectHouse.value === 'Gryffindor') {
-    const count = listCharacters(dataFilter).length-1
-    pCalc.innerHTML = `Total de personajes: ${count}, Porcentaje: ${porcent(count)}`
-    pCalc.style.display = 'block';
-  } */
