@@ -1,6 +1,6 @@
-import { apiHarry } from '../api/apiHarry.js';
+import { apiHarry } from './api/apiHarry.js';
 import { filterData, filterProtagonists, searchFilter, sortList, calculate } from './data.js';
-import listCH from '../data/harrypotter/CharactersList.js';
+import listCH from './data/harrypotter/CharactersList.js';
 
 const slSort = document.querySelector('#sl-sort');
 const listElement = document.getElementById("list");
