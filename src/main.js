@@ -1,4 +1,4 @@
-import { apiHarry } from './api/apiHarry.js';
+//import { apiHarry } from './api/apiHarry.js';
 import { filterData, filterProtagonists, searchFilter, sortList, calculate } from './data.js';
 import listCH from './data/harrypotter/CharactersList.js';
 
@@ -11,6 +11,11 @@ let dataFilter;
 const charactersName = document.getElementById("characters-names");
 const navMenu = document.querySelector('.Menu');
 const navToogle = document.querySelector('.toggle');
+
+const apiHarry = async () => {
+  const response = await fetch("data/harrypotter/harry.json");
+  return response.json()
+}
 
 apiHarry().then((listHarry) => {
   loadingDiv.style.display = 'none';
