@@ -14,7 +14,7 @@ const navToogle = document.querySelector('.toggle');
 
 const apiHarry = async () => {
   const response = await fetch("data/harrypotter/harry.json");
-  return response.json()
+  return await response.json()
 }
 
 apiHarry().then((listHarry) => {
