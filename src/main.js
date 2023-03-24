@@ -1,5 +1,5 @@
-import { apiHarry } from '../../api/apiHarry.js';
-import { filterData, filterProtagonists, searchFilter, sortList } from '/data.js';
+import { apiHarry } from '/api/apiHarry.js';
+import { filterData, filterProtagonists, searchFilter, sortList } from './data.js';
 import listCH from '../../data/harrypotter/CharactersList.js';
 
 const slSort = document.querySelector('#sl-sort');
@@ -17,7 +17,6 @@ apiHarry().then((listHarry) => {
   listElement.style.display = 'block';
   dataList = listHarry;
   dataFilter = listHarry.characters;
-  //listCharacters(dataFilter)
   renderProtagonists();
 });
 
@@ -130,9 +129,3 @@ searchBar.addEventListener('keyup', () => {
   renderList(searchFilter(dataList.characters, searchBar.value.toLowerCase()));
   if (searchBar.value === '') renderProtagonists();
 });
-
-/* if (selectHouse.value === 'Gryffindor') {
-    const count = listCharacters(dataFilter).length-1
-    pCalc.innerHTML = `Total de personajes: ${count}, Porcentaje: ${porcent(count)}`
-    pCalc.style.display = 'block';
-  } */
